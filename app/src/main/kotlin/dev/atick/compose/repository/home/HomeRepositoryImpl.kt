@@ -1,37 +1,27 @@
 package dev.atick.compose.repository.home
 
-import dev.atick.compose.data.home.Item
-import dev.atick.network.data.JetpackDataSource
-import dev.atick.storage.preferences.data.PreferencesDatastore
-import dev.atick.storage.room.data.JetpackDao
+import android.content.Context
+import android.graphics.BitmapFactory
+import android.net.Uri
+import android.util.Base64
+import androidx.compose.ui.graphics.ImageBitmap
+import androidx.compose.ui.graphics.asImageBitmap
+import dagger.hilt.android.qualifiers.ApplicationContext
+import dev.atick.core.utils.FileUtils
+import dev.atick.network.data.HypoAiDataSource
 import javax.inject.Inject
 
 class HomeRepositoryImpl @Inject constructor(
-    private val jetpackDao: JetpackDao,
-    private val jetpackDataSource: JetpackDataSource,
-    private val preferencesDatastore: PreferencesDatastore
+    @ApplicationContext private val context: Context,
+    private val jetpackDataSource: HypoAiDataSource
 ) : HomeRepository {
-    override suspend fun getItem(id: Int): Result<Item> {
+    override suspend fun analyzeImage(inputImageUri: Uri): Result<ImageBitmap> {
         return try {
-            val response = jetpackDataSource.getItem(id)
-            val item = Item(
-                id = response.id,
-                title = response.title
-            )
-            Result.success(item)
-        } catch (exception: Exception) {
-            Result.failure(exception)
-        }
-    }
-
-    override suspend fun saveItem(item: Item) {
-        jetpackDao.insert(item.toRoomItem())
-    }
-
-    override suspend fun getUserId(): Result<String> {
-        return try {
-            val userId = preferencesDatastore.getUserId()
-            Result.success(userId)
+            val file = FileUtils.getFileFromUri(context, inputImageUri)
+            val response = jetpackDataSource.analyzeImage(file)
+            val decodedString = Base64.decode(response.mask.split(",")[1], Base64.DEFAULT)
+            val mask = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.size)
+            Result.success(mask.asImageBitmap())
         } catch (exception: Exception) {
             Result.failure(exception)
         }

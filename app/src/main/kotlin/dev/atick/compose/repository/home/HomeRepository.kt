@@ -1,9 +1,8 @@
 package dev.atick.compose.repository.home
 
-import dev.atick.compose.data.home.Item
+import android.net.Uri
+import androidx.compose.ui.graphics.ImageBitmap
 
 interface HomeRepository {
-    suspend fun getItem(id: Int): Result<Item>
-    suspend fun saveItem(item: Item)
-    suspend fun getUserId(): Result<String>
+    suspend fun analyzeImage(inputImageUri: Uri): Result<ImageBitmap>
 }

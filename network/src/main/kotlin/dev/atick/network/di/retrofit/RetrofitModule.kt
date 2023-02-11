@@ -4,7 +4,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import dev.atick.network.api.JetpackRestApi.Companion.BASE_URL
+import dev.atick.network.api.HypoAiRestApi.Companion.BASE_URL
 import dev.atick.network.di.okhttp.OkHttpClientModule
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit

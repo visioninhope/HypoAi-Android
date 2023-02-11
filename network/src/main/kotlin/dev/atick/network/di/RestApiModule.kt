@@ -4,7 +4,7 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import dev.atick.network.api.JetpackRestApi
+import dev.atick.network.api.HypoAiRestApi
 import dev.atick.network.di.retrofit.RetrofitModule
 import retrofit2.Retrofit
 import javax.inject.Singleton
@@ -18,7 +18,7 @@ import javax.inject.Singleton
 object RestApiModule {
     @Singleton
     @Provides
-    fun provideApiService(retrofit: Retrofit): JetpackRestApi {
-        return retrofit.create(JetpackRestApi::class.java)
+    fun provideApiService(retrofit: Retrofit): HypoAiRestApi {
+        return retrofit.create(HypoAiRestApi::class.java)
     }
 }
