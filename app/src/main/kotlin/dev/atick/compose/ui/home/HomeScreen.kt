@@ -1,15 +1,8 @@
 package dev.atick.compose.ui.home
 
-import android.app.Activity
-import android.content.Context
-import android.content.Intent
-import android.net.Uri
-import android.provider.MediaStore
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.PickVisualMediaRequest
-import androidx.activity.result.contract.ActivityResultContract
 import androidx.activity.result.contract.ActivityResultContracts
-import androidx.annotation.CallSuper
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.*
@@ -28,6 +21,7 @@ import dev.atick.compose.ui.home.components.HomeContent
 import dev.atick.core.extensions.getBitmap
 import dev.atick.core.ui.components.TopBar
 import dev.atick.core.ui.extensions.getTmpFileUri
+import dev.atick.core.ui.utils.TakePictureWithUriReturnContract
 import kotlinx.coroutines.launch
 
 @Composable
@@ -100,27 +94,5 @@ fun HomeScreen(
             },
             onUploadImageClick = { homeViewModel.analyzeImage() }
         )
-    }
-}
-
-
-class TakePictureWithUriReturnContract : ActivityResultContract<Uri, Pair<Boolean, Uri>>() {
-
-    private lateinit var imageUri: Uri
-
-    @CallSuper
-    override fun createIntent(context: Context, input: Uri): Intent {
-        imageUri = input
-        return Intent(MediaStore.ACTION_IMAGE_CAPTURE).putExtra(MediaStore.EXTRA_OUTPUT, input)
-    }
-
-    override fun getSynchronousResult(
-        context: Context,
-        input: Uri
-    ): SynchronousResult<Pair<Boolean, Uri>>? = null
-
-    @Suppress("AutoBoxing")
-    override fun parseResult(resultCode: Int, intent: Intent?): Pair<Boolean, Uri> {
-        return (resultCode == Activity.RESULT_OK) to imageUri
     }
 }
