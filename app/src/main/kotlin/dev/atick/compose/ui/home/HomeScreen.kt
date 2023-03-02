@@ -84,7 +84,7 @@ fun HomeScreen(
                     context.getTmpFileUri(BuildConfig.APPLICATION_ID)
                 )
             },
-            onSelectAnotherImageClick = { homeViewModel.setInputImageBitmap(null) },
+            onSelectAnotherImageClick = { homeViewModel.clearAnalysisResult() },
             onOpenGalleryClick = {
                 openGalleryLauncher.launch(
                     PickVisualMediaRequest(

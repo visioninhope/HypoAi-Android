@@ -1,8 +1,8 @@
 package dev.atick.compose.repository.home
 
 import android.net.Uri
-import androidx.compose.ui.graphics.ImageBitmap
+import dev.atick.compose.data.home.AnalysisResult
 
 interface HomeRepository {
-    suspend fun analyzeImage(inputImageUri: Uri): Result<ImageBitmap>
+    suspend fun analyzeImage(inputImageUri: Uri): Result<AnalysisResult>
 }
