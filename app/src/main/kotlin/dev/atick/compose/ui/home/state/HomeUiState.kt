@@ -9,5 +9,6 @@ data class HomeUiState(
     override val loading: Boolean = false,
     override val toastMessage: UiText? = null,
     val inputImageUri: Uri? = null,
+    val score: String? = null,
     val inputImageBitmap: ImageBitmap? = null,
 ) : BaseUiState()

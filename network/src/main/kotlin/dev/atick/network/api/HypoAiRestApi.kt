@@ -9,7 +9,7 @@ import retrofit2.http.Part
 interface HypoAiRestApi {
 
     companion object {
-        const val BASE_URL = "https://jsonplaceholder.typicode.com"
+        const val BASE_URL = "http://35.226.96.221/"
     }
 
     @Multipart

@@ -8,7 +8,6 @@ import dev.atick.compose.repository.home.HomeRepository
 import dev.atick.compose.ui.home.state.HomeUiState
 import dev.atick.core.ui.base.BaseViewModel
 import dev.atick.core.ui.utils.UiText
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -36,18 +35,23 @@ class HomeViewModel @Inject constructor(
         _homeUiState.update { it.copy(inputImageUri = uri) }
     }
 
+    fun clearAnalysisResult() {
+        _homeUiState.update { it.copy(inputImageBitmap = null, score = null) }
+    }
+
     fun analyzeImage() {
         homeUiState.value.inputImageUri?.let { uri ->
             viewModelScope.launch {
                 _homeUiState.update { it.copy(loading = true) }
-                delay(3000L)
+                // delay(3000L)
                 val result = homeRepository.analyzeImage(uri)
                 if (result.isSuccess) {
-                    val imageBitmap = result.getOrNull()
-                    imageBitmap?.let {
+                    val analysisResult = result.getOrNull()
+                    analysisResult?.let {
                         _homeUiState.update {
                             it.copy(
-                                inputImageBitmap = imageBitmap,
+                                score = analysisResult.score,
+                                inputImageBitmap = analysisResult.mask,
                                 loading = false
                             )
                         }
@@ -55,7 +59,9 @@ class HomeViewModel @Inject constructor(
                 } else {
                     _homeUiState.update {
                         it.copy(
-                            toastMessage = UiText.DynamicString(result.exceptionOrNull().toString()),
+                            toastMessage = UiText.DynamicString(
+                                result.exceptionOrNull().toString()
+                            ),
                             loading = false
                         )
                     }

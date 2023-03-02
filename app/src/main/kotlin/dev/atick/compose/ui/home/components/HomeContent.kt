@@ -16,6 +16,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.LottieConstants
@@ -75,6 +76,14 @@ fun HomeContent(
                 Text(text = "Select Image from Gallery")
             }
         } else {
+            homeUiState.score?.let {
+                Text(
+                    modifier = Modifier.fillMaxWidth(),
+                    fontSize = 20.sp,
+                    text = "SCORE: ${homeUiState.score}",
+                    textAlign = TextAlign.Center
+                )
+            }
             Image(
                 modifier = Modifier.weight(1F),
                 bitmap = homeUiState.inputImageBitmap,
