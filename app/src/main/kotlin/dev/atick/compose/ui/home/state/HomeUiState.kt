@@ -6,8 +6,8 @@ import dev.atick.core.ui.base.BaseUiState
 import dev.atick.core.ui.utils.UiText
 
 data class HomeUiState(
-    val loading: Boolean = false,
-    val error: UiText? = null,
+    override val loading: Boolean = false,
+    override val toastMessage: UiText? = null,
     val inputImageUri: Uri? = null,
     val inputImageBitmap: ImageBitmap? = null,
 ) : BaseUiState()

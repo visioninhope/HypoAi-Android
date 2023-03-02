@@ -33,7 +33,7 @@ fun HomeScreen(
     val snackbarHost = remember { SnackbarHostState() }
     val lifecycle = LocalLifecycleOwner.current.lifecycle
 
-    homeUiState.error?.let {
+    homeUiState.toastMessage?.let {
         val errorMessage = it.asString()
         LaunchedEffect(homeUiState) {
             lifecycle.repeatOnLifecycle(Lifecycle.State.STARTED) {

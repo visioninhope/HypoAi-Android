@@ -29,7 +29,7 @@ class HomeViewModel @Inject constructor(
     }
 
     fun clearError() {
-        _homeUiState.update { it.copy(error = null) }
+        _homeUiState.update { it.copy(toastMessage = null) }
     }
 
     fun setInputImageUri(uri: Uri) {
@@ -55,7 +55,7 @@ class HomeViewModel @Inject constructor(
                 } else {
                     _homeUiState.update {
                         it.copy(
-                            error = UiText.DynamicString(result.exceptionOrNull().toString()),
+                            toastMessage = UiText.DynamicString(result.exceptionOrNull().toString()),
                             loading = false
                         )
                     }

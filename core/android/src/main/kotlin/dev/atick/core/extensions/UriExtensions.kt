@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package dev.atick.core.extensions
 
 import android.content.Context
