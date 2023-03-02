@@ -43,7 +43,6 @@ class HomeViewModel @Inject constructor(
         homeUiState.value.inputImageUri?.let { uri ->
             viewModelScope.launch {
                 _homeUiState.update { it.copy(loading = true) }
-                // delay(3000L)
                 val result = homeRepository.analyzeImage(uri)
                 if (result.isSuccess) {
                     val analysisResult = result.getOrNull()
