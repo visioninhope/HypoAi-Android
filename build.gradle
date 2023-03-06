@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        app_id = "dev.atick.hypo.ai"
+        app_id = "dev.atick.hypoai"
 
         // Version Name: X.Y.Z;
         // X = Major Update
