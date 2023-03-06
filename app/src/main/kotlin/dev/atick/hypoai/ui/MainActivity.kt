@@ -1,11 +1,11 @@
-package dev.atick.compose.ui
+package dev.atick.hypoai.ui
 
 import android.Manifest
 import android.os.Build
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import dagger.hilt.android.AndroidEntryPoint
-import dev.atick.compose.R
+import dev.atick.hypoai.R
 import dev.atick.core.extensions.collectWithLifecycle
 import dev.atick.core.ui.extensions.checkForPermissions
 import dev.atick.network.utils.NetworkUtils

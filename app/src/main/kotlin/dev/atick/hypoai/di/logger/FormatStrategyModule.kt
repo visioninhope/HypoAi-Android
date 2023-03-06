@@ -1,4 +1,4 @@
-package dev.atick.compose.di.logger
+package dev.atick.hypoai.di.logger
 
 import com.orhanobut.logger.FormatStrategy
 import com.orhanobut.logger.PrettyFormatStrategy

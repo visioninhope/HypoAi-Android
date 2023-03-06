@@ -1,7 +1,7 @@
-package dev.atick.compose.repository.home
+package dev.atick.hypoai.repository.home
 
 import android.net.Uri
-import dev.atick.compose.data.home.AnalysisResult
+import dev.atick.hypoai.data.home.AnalysisResult
 
 interface HomeRepository {
     suspend fun analyzeImage(inputImageUri: Uri): Result<AnalysisResult>

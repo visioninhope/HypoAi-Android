@@ -1,11 +1,11 @@
-package dev.atick.compose.di.repository
+package dev.atick.hypoai.di.repository
 
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
-import dev.atick.compose.repository.home.HomeRepository
-import dev.atick.compose.repository.home.HomeRepositoryImpl
+import dev.atick.hypoai.repository.home.HomeRepository
+import dev.atick.hypoai.repository.home.HomeRepositoryImpl
 import javax.inject.Singleton
 
 @Module

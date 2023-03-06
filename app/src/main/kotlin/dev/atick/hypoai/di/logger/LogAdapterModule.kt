@@ -1,6 +1,6 @@
-package dev.atick.compose.di.logger
+package dev.atick.hypoai.di.logger
 
-import dev.atick.compose.BuildConfig
+import dev.atick.hypoai.BuildConfig
 import com.orhanobut.logger.AndroidLogAdapter
 import com.orhanobut.logger.FormatStrategy
 import com.orhanobut.logger.LogAdapter

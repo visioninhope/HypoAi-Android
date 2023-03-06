@@ -1,4 +1,4 @@
-package dev.atick.compose
+package dev.atick.hypoai
 
 import android.app.Application
 import com.orhanobut.logger.LogAdapter

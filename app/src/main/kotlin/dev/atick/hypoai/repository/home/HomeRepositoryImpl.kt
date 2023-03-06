@@ -1,4 +1,4 @@
-package dev.atick.compose.repository.home
+package dev.atick.hypoai.repository.home
 
 import android.content.Context
 import android.graphics.BitmapFactory
@@ -7,7 +7,7 @@ import android.util.Base64
 import androidx.compose.ui.graphics.asImageBitmap
 import com.orhanobut.logger.Logger
 import dagger.hilt.android.qualifiers.ApplicationContext
-import dev.atick.compose.data.home.AnalysisResult
+import dev.atick.hypoai.data.home.AnalysisResult
 import dev.atick.core.ui.extensions.getFileFromContentUri
 import dev.atick.network.data.HypoAiDataSource
 import javax.inject.Inject

@@ -1,4 +1,4 @@
-package dev.atick.compose.ui.home
+package dev.atick.hypoai.ui.home
 
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.PickVisualMediaRequest
@@ -15,9 +15,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
-import dev.atick.compose.BuildConfig
-import dev.atick.compose.R
-import dev.atick.compose.ui.home.components.HomeContent
+import dev.atick.hypoai.BuildConfig
+import dev.atick.hypoai.R
+import dev.atick.hypoai.ui.home.components.HomeContent
 import dev.atick.core.extensions.getBitmap
 import dev.atick.core.ui.components.TopBar
 import dev.atick.core.ui.extensions.getTmpFileUri

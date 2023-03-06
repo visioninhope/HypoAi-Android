@@ -1,4 +1,4 @@
-package dev.atick.compose.data.home
+package dev.atick.hypoai.data.home
 
 import androidx.compose.ui.graphics.ImageBitmap
 

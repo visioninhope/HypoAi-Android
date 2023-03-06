@@ -1,4 +1,4 @@
-package dev.atick.compose.di.notification
+package dev.atick.hypoai.di.notification
 
 import android.app.NotificationManager
 import android.content.Context

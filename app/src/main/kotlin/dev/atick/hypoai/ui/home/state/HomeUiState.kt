@@ -1,4 +1,4 @@
-package dev.atick.compose.ui.home.state
+package dev.atick.hypoai.ui.home.state
 
 import android.net.Uri
 import androidx.compose.ui.graphics.ImageBitmap

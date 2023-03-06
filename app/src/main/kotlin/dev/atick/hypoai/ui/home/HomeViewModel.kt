@@ -1,11 +1,11 @@
-package dev.atick.compose.ui.home
+package dev.atick.hypoai.ui.home
 
 import android.net.Uri
 import androidx.compose.ui.graphics.ImageBitmap
 import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
-import dev.atick.compose.repository.home.HomeRepository
-import dev.atick.compose.ui.home.state.HomeUiState
+import dev.atick.hypoai.repository.home.HomeRepository
+import dev.atick.hypoai.ui.home.state.HomeUiState
 import dev.atick.core.ui.base.BaseViewModel
 import dev.atick.core.ui.utils.UiText
 import kotlinx.coroutines.flow.MutableStateFlow

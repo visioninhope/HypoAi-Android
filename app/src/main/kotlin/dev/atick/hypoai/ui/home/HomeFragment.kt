@@ -1,4 +1,4 @@
-package dev.atick.compose.ui.home
+package dev.atick.hypoai.ui.home
 
 import androidx.compose.runtime.Composable
 import dagger.hilt.android.AndroidEntryPoint

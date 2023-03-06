@@ -1,4 +1,4 @@
-package dev.atick.compose.ui.home.components
+package dev.atick.hypoai.ui.home.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
@@ -21,7 +21,7 @@ import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.LottieConstants
 import com.airbnb.lottie.compose.rememberLottieComposition
-import dev.atick.compose.ui.home.state.HomeUiState
+import dev.atick.hypoai.ui.home.state.HomeUiState
 import dev.atick.core.ui.components.LoadingButton
 
 @Preview(showSystemUi = true)
