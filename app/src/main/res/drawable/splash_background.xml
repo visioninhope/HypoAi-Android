@@ -3,7 +3,7 @@
 
     <item android:drawable="@color/surface_light" />
     <item
-        android:drawable="@mipmap/ic_launcher_foreground"
+        android:drawable="@drawable/app_logo"
         android:gravity="center" />
 
 </layer-list>

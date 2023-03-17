@@ -11,17 +11,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLifecycleOwner
-import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
-import dev.atick.hypoai.BuildConfig
-import dev.atick.hypoai.R
-import dev.atick.hypoai.ui.home.components.HomeContent
 import dev.atick.core.extensions.getBitmap
 import dev.atick.core.ui.components.TopBar
 import dev.atick.core.ui.extensions.getTmpFileUri
 import dev.atick.core.ui.utils.TakePictureWithUriReturnContract
+import dev.atick.hypoai.BuildConfig
+import dev.atick.hypoai.ui.home.components.HomeContent
 import kotlinx.coroutines.launch
 
 @Composable
@@ -66,12 +64,7 @@ fun HomeScreen(
     }
 
     Scaffold(
-        topBar = {
-            TopBar(
-                title = stringResource(R.string.home),
-                onSearchClick = {},
-                onMenuClick = {})
-        },
+        topBar = { TopBar() },
         snackbarHost = { SnackbarHost(hostState = snackbarHost) }
     ) { paddingValues ->
         HomeContent(
