@@ -4,5 +4,6 @@ import android.net.Uri
 import dev.atick.hypoai.data.home.AnalysisResult
 
 interface HomeRepository {
-    suspend fun analyzeImage(inputImageUri: Uri): Result<AnalysisResult>
+    suspend fun uploadImageForHypospadiasAnalysis(inputImageUri: Uri): Result<AnalysisResult>
+    suspend fun uploadImageForCurvatureAnalysis(inputImageUri: Uri): Result<AnalysisResult>
 }

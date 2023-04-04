@@ -1,6 +1,6 @@
 package dev.atick.network.api
 
-import dev.atick.network.data.models.HypoAiResponse
+import dev.atick.network.data.models.Response
 import okhttp3.MultipartBody
 import retrofit2.http.Multipart
 import retrofit2.http.POST
@@ -14,7 +14,13 @@ interface HypoAiRestApi {
 
     @Multipart
     @POST("hypoAI/rest")
-    suspend fun analyzeImage(
+    suspend fun getHypospadiasScore(
         @Part file: MultipartBody.Part
-    ): HypoAiResponse
+    ): Response
+
+    @Multipart
+    @POST("hypoAI/rest")
+    suspend fun getCurvatureScore(
+        @Part file: MultipartBody.Part
+    ): Response
 }

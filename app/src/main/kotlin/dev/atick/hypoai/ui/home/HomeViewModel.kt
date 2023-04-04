@@ -39,11 +39,41 @@ class HomeViewModel @Inject constructor(
         _homeUiState.update { it.copy(inputImageBitmap = null, score = null) }
     }
 
-    fun analyzeImage() {
+    fun uploadImageForHypospadiasAnalysis() {
         homeUiState.value.inputImageUri?.let { uri ->
             viewModelScope.launch {
                 _homeUiState.update { it.copy(loading = true) }
-                val result = homeRepository.analyzeImage(uri)
+                val result = homeRepository.uploadImageForHypospadiasAnalysis(uri)
+                if (result.isSuccess) {
+                    val analysisResult = result.getOrNull()
+                    analysisResult?.let {
+                        _homeUiState.update {
+                            it.copy(
+                                score = analysisResult.score,
+                                inputImageBitmap = analysisResult.mask,
+                                loading = false
+                            )
+                        }
+                    }
+                } else {
+                    _homeUiState.update {
+                        it.copy(
+                            toastMessage = UiText.DynamicString(
+                                result.exceptionOrNull().toString()
+                            ),
+                            loading = false
+                        )
+                    }
+                }
+            }
+        }
+    }
+
+    fun uploadImageForCurvatureAnalysis() {
+        homeUiState.value.inputImageUri?.let { uri ->
+            viewModelScope.launch {
+                _homeUiState.update { it.copy(loading = true) }
+                val result = homeRepository.uploadImageForCurvatureAnalysis(uri)
                 if (result.isSuccess) {
                     val analysisResult = result.getOrNull()
                     analysisResult?.let {

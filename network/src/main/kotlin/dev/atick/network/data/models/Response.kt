@@ -2,7 +2,7 @@ package dev.atick.network.data.models
 
 import com.google.gson.annotations.SerializedName
 
-data class HypoAiResponse(
+data class Response(
     @SerializedName("score")
     val score: String,
     @SerializedName("image")
