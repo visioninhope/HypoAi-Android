@@ -49,7 +49,7 @@ class HomeViewModel @Inject constructor(
                     analysisResult?.let {
                         _homeUiState.update {
                             it.copy(
-                                score = analysisResult.score,
+                                score = String.format("%.4f", analysisResult.score),
                                 inputImageBitmap = analysisResult.mask,
                                 loading = false
                             )
@@ -79,7 +79,7 @@ class HomeViewModel @Inject constructor(
                     analysisResult?.let {
                         _homeUiState.update {
                             it.copy(
-                                score = analysisResult.score,
+                                score = String.format("%.4f", analysisResult.score),
                                 inputImageBitmap = analysisResult.mask,
                                 loading = false
                             )

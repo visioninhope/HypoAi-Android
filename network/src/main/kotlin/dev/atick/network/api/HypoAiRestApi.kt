@@ -19,7 +19,7 @@ interface HypoAiRestApi {
     ): Response
 
     @Multipart
-    @POST("hypoAI/rest")
+    @POST("curveAI/rest")
     suspend fun getCurvatureScore(
         @Part file: MultipartBody.Part
     ): Response

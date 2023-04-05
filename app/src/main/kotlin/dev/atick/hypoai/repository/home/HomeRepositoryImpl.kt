@@ -40,7 +40,7 @@ class HomeRepositoryImpl @Inject constructor(
         return try {
             Logger.i("IMAGE URI: $inputImageUri")
             val file = context.getFileFromContentUri(inputImageUri)
-            val response = jetpackDataSource.getHypospadiasScore(file)
+            val response = jetpackDataSource.getCurvatureScore(file)
             val decodedString = Base64.decode(response.mask, Base64.DEFAULT)
             val mask = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.size)
             val score = response.score

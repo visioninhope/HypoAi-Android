@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 data class Response(
     @SerializedName("score")
-    val score: String,
+    val score: Float,
     @SerializedName("image")
     val image: String,
     @SerializedName("mask")
