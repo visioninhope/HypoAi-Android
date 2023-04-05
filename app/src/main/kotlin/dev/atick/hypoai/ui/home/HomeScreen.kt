@@ -3,11 +3,13 @@ package dev.atick.hypoai.ui.home
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.PickVisualMediaRequest
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.LocalLifecycleOwner
@@ -25,6 +27,7 @@ import kotlinx.coroutines.launch
 @Composable
 @OptIn(ExperimentalMaterial3Api::class)
 fun HomeScreen(
+    onVisitWebsiteClick: () -> Unit,
     homeViewModel: HomeViewModel = viewModel()
 ) {
     val homeUiState by homeViewModel.homeUiState.collectAsState()
@@ -64,6 +67,7 @@ fun HomeScreen(
     }
 
     Scaffold(
+        modifier = Modifier.background(Color(0xFF000000)),
         topBar = { TopBar() },
         snackbarHost = { SnackbarHost(hostState = snackbarHost) }
     ) { paddingValues ->
@@ -85,7 +89,9 @@ fun HomeScreen(
                     )
                 )
             },
-            onUploadImageClick = { homeViewModel.analyzeImage() }
+            onHypospadiasAnalysisClick = { homeViewModel.uploadImageForHypospadiasAnalysis() },
+            onCurvatureAnalysisClick = { homeViewModel.uploadImageForCurvatureAnalysis() },
+            onVisitWebsiteClick = onVisitWebsiteClick
         )
     }
 }
